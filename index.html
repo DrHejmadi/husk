@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Husk – fælles påmindelser om det, der gentager sig</title>
+<meta name="description" content="Husk holder styr på familiens tilbagevendende opgaver: vand planterne, tøm postkassen, hæld medicin op. Del med familien via iCloud. Gratis, uden reklamer og uden sporing.">
+<meta property="og:title" content="Husk – fælles påmindelser">
+<meta property="og:description" content="Familiens tilbagevendende opgaver – delt via iCloud. Gratis, uden reklamer og uden sporing.">
+<meta property="og:image" content="https://drhejmadi.github.io/husk/icon.png">
+<meta name="apple-itunes-app" content="app-id=6818867790">
+<link rel="icon" href="favicon.png">
+<style>
+  :root {
+    --ink: #203b31; --paper: #f3f0e7; --surface: #fbfaf6; --muted: #5e6a62; --line: #c7cbc2;
+    --lime: #cbd5bd; --blue: #dbe3df; --mint: #d3dfd2; --sand: #e4dfd3; --coral: #e8d7cf;
+    --red: #9e493b; --sage: #6d806c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { background: var(--paper); color: var(--ink); font: 18px/1.55 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--ink); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 22px; }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; text-decoration: none; letter-spacing: -.02em; }
+  nav .brand img { width: 36px; height: 36px; border-radius: 9px; }
+  nav .links a { margin-left: 18px; font-size: 15px; font-weight: 600; text-decoration: none; color: var(--muted); }
+  .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding: 36px 0 64px; }
+  h1 { font-size: clamp(44px, 7vw, 76px); line-height: .95; letter-spacing: -.055em; font-weight: 800; margin: 14px 0 22px; }
+  h1 span, h2 span { color: var(--sage); }
+  .lead { font-size: 21px; color: var(--muted); max-width: 30em; }
+  .cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: #eef2ea; text-decoration: none; padding: 15px 24px; border-radius: 999px; font-weight: 700; font-size: 17px; }
+  .btn svg { width: 20px; height: 20px; fill: currentColor; }
+  .note { font-size: 14px; color: var(--muted); }
+  .phones { display: flex; justify-content: center; gap: 18px; }
+  .phones img { width: 46%; max-width: 250px; border-radius: 34px; border: 1px solid var(--line); box-shadow: 0 30px 60px -30px rgba(32, 59, 49, .45); }
+  .phones img:nth-child(2) { margin-top: 48px; }
+  section { padding: 56px 0; }
+  h2 { font-size: clamp(32px, 5vw, 48px); line-height: 1; letter-spacing: -.045em; font-weight: 800; margin: 12px 0 28px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { border-radius: 24px; border: 1px solid rgba(199, 203, 194, .75); padding: 24px; min-height: 190px; display: flex; flex-direction: column; }
+  .card .num { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--ink); display: grid; place-items: center; font-size: 13px; font-weight: 700; margin-bottom: auto; }
+  .card h3 { font-size: 22px; letter-spacing: -.02em; margin: 18px 0 6px; line-height: 1.15; }
+  .card p { font-size: 16px; color: var(--ink); opacity: .85; }
+  .c1 { background: var(--lime); } .c2 { background: var(--blue); } .c3 { background: var(--mint); }
+  .c4 { background: var(--sand); } .c5 { background: var(--coral); } .c6 { background: var(--surface); }
+  .shots { display: flex; gap: 18px; overflow-x: auto; padding: 6px 2px 18px; scroll-snap-type: x mandatory; }
+  .shots figure { flex: 0 0 auto; scroll-snap-align: start; text-align: center; }
+  .shots img { height: 520px; border-radius: 30px; border: 1px solid var(--line); display: block; }
+  .shots img.watch { height: 260px; border-radius: 52px; margin-top: 130px; }
+  .shots figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; font-weight: 600; }
+  .privacy { background: var(--ink); color: #eef2ea; border-radius: 32px; padding: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .privacy h2 { color: #eef2ea; margin-top: 8px; } .privacy h2 span { color: #9db29c; }
+  .privacy .eyebrow { color: #a3afa7; }
+  .privacy ul { list-style: none; } .privacy li { padding: 10px 0; border-bottom: 1px solid rgba(238, 242, 234, .15); }
+  .privacy li:last-child { border-bottom: 0; } .privacy a { color: #eef2ea; }
+  footer { padding: 40px 0 56px; color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; }
+  footer a { color: var(--muted); margin-right: 16px; }
+  @media (max-width: 820px) {
+    .hero, .privacy { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: 1fr 1fr; }
+    .privacy { padding: 30px 24px; }
+  }
+  @media (max-width: 520px) {
+    .grid { grid-template-columns: 1fr; }
+    nav .links a:not(:last-child) { display: none; }
+    .shots img { height: 420px; } .shots img.watch { height: 210px; margin-top: 105px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="./"><img src="icon.png" alt="">Husk</a>
+    <div class="links">
+      <a href="#funktioner">Funktioner</a>
+      <a href="privacy.html">Privatliv</a>
+      <a href="support.html">Support</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Gratis app til iPhone og Apple Watch</div>
+      <h1>Husk det, der <span>gentager sig.</span></h1>
+      <p class="lead">Vand planterne, tøm postkassen, hæld medicin op. Husk holder styr på familiens faste opgaver – og når én har gjort det, kan alle se det.</p>
+      <div class="cta">
+        <a class="btn" href="https://apps.apple.com/dk/app/husk/id6818867790">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.77-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.78-.41 6.9 1.15 9.16.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.39-.92-2.41-3.65zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.02.61-2.67 1.37-.58.67-1.09 1.76-.95 2.8 1.01.08 2.05-.52 2.68-1.28z"/></svg>
+          Hent i App Store
+        </a>
+        <span class="note">Gratis · Ingen reklamer · Ingen konto</span>
+      </div>
+    </div>
+    <div class="phones">
+      <img src="aktuelle.jpg" alt="Skærmbillede: Aktuelle viser dagens opgaver med en overskreden opgave øverst">
+      <img src="widget.jpg" alt="Skærmbillede: Husk-widgets på hjemmeskærmen med opgaver og ✓-knapper">
+    </div>
+  </header>
+
+  <section id="funktioner">
+    <div class="eyebrow">Funktioner</div>
+    <h2>Lavet til familier – <span>og til hverdagen.</span></h2>
+    <div class="grid">
+      <div class="card c1"><div class="num">01</div><h3>Fælles for hele familien</h3><p>Ét tryk krydser af for alle. Man kan se, hvem der gjorde det og hvornår – og opgaven dukker først op igen, når det er tid.</p></div>
+      <div class="card c2"><div class="num">02</div><h3>Flere steder</h3><p>Hjem, arbejde, klub eller sommerhus – hvert sted har sine egne opgaver og sit eget fællesskab.</p></div>
+      <div class="card c3"><div class="num">03</div><h3>Vigtige opgaver</h3><p>Medicin og regninger kan markeres som vigtige. De står øverst og giver ekstra påmindelser.</p></div>
+      <div class="card c4"><div class="num">04</div><h3>Sæsoner</h3><p>Bonsaien skal vandes hver uge om sommeren og hver 14. dag om efteråret? Husk følger årstiden.</p></div>
+      <div class="card c5"><div class="num">05</div><h3>Widget og Apple Watch</h3><p>Se dagens opgaver på hjemmeskærmen, låseskærmen og uret – og kryds af direkte derfra.</p></div>
+      <div class="card c6"><div class="num">06</div><h3>Fortryd altid</h3><p>Krydset af ved en fejl? Fortryd med det samme eller fra historikken – fristen kommer tilbage hos alle.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Se appen</div>
+    <h2>Rolig, <span>tydelig og dansk.</span></h2>
+    <div class="shots">
+      <figure><img src="aktuelle.jpg" alt="Aktuelle" loading="lazy"><figcaption>Aktuelle</figcaption></figure>
+      <figure><img src="detaljer.jpg" alt="Opgavedetaljer med sæsoner" loading="lazy"><figcaption>Detaljer og sæsoner</figcaption></figure>
+      <figure><img src="sted-arbejde.jpg" alt="Et sted med en vigtig opgave" loading="lazy"><figcaption>Steder og vigtige opgaver</figcaption></figure>
+      <figure><img src="widget.jpg" alt="Widgets på hjemmeskærmen" loading="lazy"><figcaption>Widgets</figcaption></figure>
+      <figure><img src="steder.jpg" alt="Steder og indstillinger" loading="lazy"><figcaption>Steder og påmindelser</figcaption></figure>
+      <figure><img class="watch" src="ur-aktuelle.jpg" alt="Husk på Apple Watch" loading="lazy"><figcaption>Apple Watch</figcaption></figure>
+      <figure><img class="watch" src="ur-udfoert.jpg" alt="Udført på Apple Watch med Fortryd" loading="lazy"><figcaption>Udført på uret</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="privacy">
+      <div>
+        <div class="eyebrow">Privatliv</div>
+        <h2>Dine opgaver er <span>dine.</span></h2>
+        <p>Husk har ingen server og ingen konto. Opgaverne ligger i din egen iCloud og deles kun med dem, du selv inviterer.</p>
+      </div>
+      <ul>
+        <li>Ingen reklamer og ingen sporing</li>
+        <li>Ingen analyseværktøjer</li>
+        <li>Deling via Apples iCloud – udvikleren har ingen adgang</li>
+        <li><a href="privacy.html">Læs privatlivspolitikken</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2026 Michael Skov Hejmadi</div>
+    <div><a href="privacy.html">Privatlivspolitik</a><a href="support.html">Support</a><a href="mailto:hejmadi@gmail.com">hejmadi@gmail.com</a></div>
+  </footer>
+</div>
+</body>
+</html>
